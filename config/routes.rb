@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy' , as: 'logout' 
-  resources :authors 
+  resources :authors do 
+    resources :books, only: [:new, :create, :index]
+  end 
   resources :genres
   resources :users do 
     resources :reviews, only: [:new, :create, :index]
