@@ -1,3 +1,7 @@
 <h1> Author Show Page </h1> 
 <h1><%= @author.name %></h1>
-Name: <%= @author.name %><br />
+Name: <%= @author.name %><br/>
+<h4> Associated Books </h4> 
+<% @author.books.each do |b| %>
+    <li><%=b.user.username%>
+    <% end %> 
