@@ -1,8 +1,13 @@
 class BooksController < ApplicationController
 
     def index 
+        if params[:author_id] && @author = Author.find_by_id(params[:author_id])
+        @books = @author.books 
+        else 
+        @error = "That book doesn't exist yet" if params[:author_id]
         @books = Book.all 
     end 
+end 
 
     def new 
         @book = Book.new 
