@@ -1,0 +1,5 @@
+<%= f.label :author, "Author:" %> 
+<%= f.collection_select :author_id, Author.all, :id, :name, prompt: true %> <br><br>
+<%= f.fields_for :author do |b| %> 
+    <%=render partial: 'authors/fields', locals: {f: b} %>
+    <% end %> <br> <br> 
