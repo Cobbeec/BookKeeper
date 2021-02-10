@@ -1,5 +1,14 @@
+<% if @author %>
+<h1> New Book Form </h1> 
+<h1>Books for <%= @author.name%> </h1>
+<% else %> 
 <h1> New Book </h1> 
-<%= form_for(@book) do |f| %>
+<% end %> 
+
+
+<%= form_for([@book.author, @book]) do |f| %>
+
+  
 
     <%= f.label :title %>
     <%= f.text_field :title %>
@@ -12,4 +21,5 @@
 
     <%= f.submit %>
 
-    <% end %> 
+  <% end %>
+

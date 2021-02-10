@@ -5,15 +5,21 @@ class BooksController < ApplicationController
         @books = @author.books 
         else 
         @error = "That book doesn't exist yet" if params[:author_id]
-        @books = Book.all 
+        @books = Book.all #you can add a scope method here. Like ordered by price
     end 
 end 
 
     def new 
-        @book = Book.new 
+        if params[:author_id] && Author.find_by_id(params[:author_id])
+            @book = @author.books.build 
+        else 
+            @error = "That book does not yet exist" if params[:author_id]
+            @book = Book.new 
+        end 
     end 
 
     def create
+        binding.pry 
         @book= Book.create(book_params)
         if @book
           redirect_to book_path(@book)
