@@ -1,2 +1,9 @@
 <h1> All the Books </h1> 
 <%= display_header(@author) %> 
+
+<% @books.each do |book| %> 
+    <div> 
+    <%=book.name%> 
+    </div> 
+
+ <%end%> 
