@@ -2,7 +2,10 @@ class User < ApplicationRecord
     has_secure_password
     has_many :reviews 
     has_many :books 
-
+    validates :username, presence: true
+    validates :username, uniqueness: true 
+    validates :email, presence: true 
+    
     # def self.create_from_omniauth(auth) 
     #        user = User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
     #         u.username = auth['info']['first_name']
