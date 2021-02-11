@@ -7,4 +7,11 @@ module BooksHelper
     end
 end 
 
+    def display_authors_fields(t) 
+        if params[:author_id]
+            t.hidden_field :author_id 
+        else 
+            render partial: 'author_select' , locals {f: t}
+    end 
+    end 
 end
