@@ -10,8 +10,16 @@ end
     def display_authors_fields(t) 
         if params[:author_id]
             t.hidden_field :author_id 
-        else 
-            render partial: 'author_select' , locals {f: t}
+    #     else 
+    #         render partial: 'author_select' , locals: {f: t}
     end 
+    end 
+
+    def display_nested_header 
+        if params[:author_id]
+            "Create a new #{@author.name} book"
+        else 
+            "Create New Book"
+        end 
     end 
 end

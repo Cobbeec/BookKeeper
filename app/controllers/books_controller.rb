@@ -5,7 +5,7 @@ class BooksController < ApplicationController
     end 
 
     def index 
-        if params[:author_id] && @author = Author.find_by_id(params[:author_id])
+        if params[:author_id] && @author = Author.find_by_id(params[:author_id]) #for nesting
         @books = @author.books 
         else 
         @error = "That book doesn't exist yet" if params[:author_id]
@@ -19,13 +19,14 @@ end
         else 
             @error = "That book does not yet exist" if params[:author_id]
             @book = Book.new 
+            @book.build_author 
         end 
     end 
 
     def create
+        @book= Book.new(book_params)
         binding.pry 
-        @book= Book.create(book_params)
-        if @book
+        if @book.save
           redirect_to book_path(@book)
         else
           render :new
@@ -46,6 +47,6 @@ end
 
     private 
     def book_params
-        params.require(:book).permit(:title, :author, :genre)
+        params.require(:book).permit(:title, :author_id, :genre_id)
       end
 end
