@@ -1,1 +1,8 @@
 <h1> All Reviews</h1> 
+
+<% @reviews.each do |review| %> 
+    <div> 
+    <%=link_to(review.title, review_path(review)) %>
+    </div> 
+
+ <%end%> 

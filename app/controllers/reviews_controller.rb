@@ -2,6 +2,14 @@ class ReviewsController < ApplicationController
     #before_action:
     #redirect_if_not_logged_in 
 
+    def index 
+        @reviews = Review.all 
+    end 
+
+    def show 
+        @review = Review.find_by_id(params[:id])
+    end 
+
     def new 
         @review = Review.new 
     end 
@@ -10,7 +18,7 @@ class ReviewsController < ApplicationController
         @review = current_user.reviews.build(review_params)
         # binding.pry 
         if @review.save 
-            redirect_to review_path 
+            redirect_to reviews_path 
         else 
             render :new 
         end 
@@ -18,6 +26,6 @@ class ReviewsController < ApplicationController
 
     private 
     def review_params 
-        params.require(:review).permit(:title,:content,:book_title, :author)
+        params.require(:review).permit(:book_id, :title,:content) #because you have a book object 
     end 
 end
