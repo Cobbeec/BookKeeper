@@ -4,11 +4,7 @@ class SessionsController < ApplicationController
     def home 
     end 
 
-    def destroy 
-    session.clear 
-    redirect_to root_path 
-    end 
-
+ 
     def create 
     user = User.find_by_id(params[:id])
     if user && user.authenticate(params[:user][:password])
@@ -34,6 +30,17 @@ class SessionsController < ApplicationController
     end 
 end 
  
+# def destroy 
+#     session.clear 
+#     redirect_to root_path 
+#     end 
+
+    def destroy
+        if current_user
+         session.delete :user_id
+        redirect_to root_url
+        end
+     end
 
     private 
     def auth 

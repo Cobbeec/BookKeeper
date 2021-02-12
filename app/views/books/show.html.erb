@@ -2,6 +2,7 @@
 
 <div>
 <%= @book.title %> <br>
-By: <%= @book.author.name %> 
+By: <%= @book.author.name %> <br> <br> 
+<%= link_to "Add a New Review!", new_review_path(@review)%>
 </div>
 

@@ -11,4 +11,8 @@ def title_and_author
   "#{self.title}" - "#{self.author}"
 end 
 
+def display_review 
+  self.reviews 
+end 
+
 end
