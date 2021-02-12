@@ -11,7 +11,6 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect_to user_path(user)
     else  
-        flash[:message] = user.errors.full_messages.join(",")
         render 'new' 
     end 
     end 
