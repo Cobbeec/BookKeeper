@@ -1,4 +1,15 @@
 <h1> Signup </h1> 
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+    <ul>
+      <% @user.errors.each do |error| %>
+        <li><%= error.full_message %></li>
+      <% end %>
+    </ul>
+  </div>
+
 <%= form_for(@user, action: '/signup') do |f| %>
 <%= f.label :name %>
 <%= f.text_field :name %>
