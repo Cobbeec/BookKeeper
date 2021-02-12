@@ -6,10 +6,10 @@ class BooksController < ApplicationController
 
     def index 
         if params[:author_id] && @author = Author.find_by_id(params[:author_id]) #for nesting
-        @books = @author.books 
+        @books = @author.books.alpha 
         else 
         @error = "That book doesn't exist yet" if params[:author_id]
-        @books = Book.all #you can add a scope method here. Like ordered by price
+        @books = Book.alpha 
     end 
 end 
 
