@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 g = Genre.create(
-    {name: "fantasy"}
+    {name: "fantasy"} 
 )
 
 
@@ -17,4 +17,14 @@ Book.create([
 {title: "The Hobbit", author: a, genre: g}
 ])
 
+Genre.create ([
+{name: "horror"} ,
+{name: "fiction"} ,
+{name: "sci-fi"} ,
+{name: "biography"} ,
+{name: "poetry"} ,
+{name: "self help"} ,
+{name: "travel"} ,
+{name: "nonfiction"} ,
+{nmae: "reference"} ]) 
 
