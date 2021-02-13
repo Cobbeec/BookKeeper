@@ -17,14 +17,14 @@
 # {title: "The Hobbit", author: a, genre: g}
 # ])
 
-# Genre.create ([
-# {name: "horror"} ,
-# {name: "fiction"} ,
-# {name: "sci-fi"} ,
-# {name: "biography"} ,
-# {name: "poetry"} ,
-# {name: "self help"} ,
-# {name: "travel"} ,
-# {name: "nonfiction"} ,
-# {nmae: "reference"} ]) 
+Genre.create ([
+{name: "horror"} ,
+{name: "fiction"} ,
+{name: "sci-fi"} ,
+{name: "biography"} ,
+{name: "poetry"} ,
+{name: "self help"} ,
+{name: "travel"} ,
+{name: "nonfiction"} ,
+{nmae: "reference"} ]) 
 
