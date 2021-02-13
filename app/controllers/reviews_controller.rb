@@ -25,7 +25,13 @@ class ReviewsController < ApplicationController
         end 
     end 
 
-    private 
+    def edit
+        @review = Review.find_by_id(params[:id])
+        redirect_to posts_path if !@review || @review.user != current_user
+        @review.build_category if !@review.category
+      end
+
+    private
     def review_params 
         params.require(:review).permit(:book_id, :title,:content) #because you have a book object 
     end 
