@@ -1,9 +1,11 @@
 class SessionsController < ApplicationController
 #login functionality 
 
-    def home 
-    end 
-
+  def destroy
+    session.clear
+    flash[:message] = "Goodbye!"
+    redirect_to root_path
+   end
  
     def create 
     user = User.find_by_id(params[:id])
@@ -11,7 +13,7 @@ class SessionsController < ApplicationController
         session[:user_id] = user.id
         redirect_to user _path(user)
     else  
-        flash[:message] = "Incorrect Login Info. Please try again."
+        # flash[:message] = "Incorrect Login Info. Please try again."
         redirect_to "/" 
     end 
     end 
@@ -31,12 +33,17 @@ class SessionsController < ApplicationController
     end 
     end 
  
-    def destroy
-        if current_user
-         session.delete :user_id
-        redirect_to root_path 
-        end
-     end
+    # def destroy
+    #     if current_user
+    #         session.delete :user_id
+    #         flash[:message] = "Goodbye!!"   
+    #         redirect_to "/"
+    #     else 
+    #         binding.pry 
+    #         flash[:message] = "Goodbye!"    
+    #         redirect_to "/"
+    #         end
+    #     end
 
     private 
     def auth 

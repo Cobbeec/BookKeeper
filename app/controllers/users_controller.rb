@@ -11,18 +11,19 @@ class UsersController < ApplicationController
             redirect_to @user 
         else 
             render :new
-    end 
+        end 
     end 
 
     def show 
+        redirect_if_not_logged_in
         @user = User.find_by_id(params[:id])
-        redirect_to 'signup' if !@user
+        redirect_to '/' if !@user
     end 
 
     private 
 
     def user_params 
-        params.require(:user).permit(:username, :email, :password)
+        params.require(:user).permit(:name, :username, :email, :password)
     end 
 
     #signup goes here 

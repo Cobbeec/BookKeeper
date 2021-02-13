@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     end 
 
     def show 
-        binding.pry 
+        # binding.pry 
         @review = Review.find_by_id(params[:id])
     end 
 
@@ -16,8 +16,8 @@ class ReviewsController < ApplicationController
     end 
 
     def create 
-        @review = current_user.reviews.build(review_params)
         # binding.pry 
+        @review = current_user.reviews.build(review_params)
         if @review.save 
             redirect_to reviews_path 
         else 

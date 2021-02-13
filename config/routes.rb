@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   post '/signup'=>  'users#create'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  delete '/logout' => 'sessions#destroy' , as: 'logout' 
+  delete '/logout' => 'sessions#destroy'
 
+  
   resources :authors do 
     resources :books, only: [:new, :create, :index]
   end 
