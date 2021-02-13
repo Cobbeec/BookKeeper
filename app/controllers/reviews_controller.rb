@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
         @reviews = @user.reviews.all
     else
-        @error = "That user doesn't exist" if params[:user_id]
+        @error = "You don't have access to that information." if params[:user_id]
         @reviews = Review.all 
       end 
     end 
@@ -23,7 +23,7 @@ class ReviewsController < ApplicationController
         @review = Review.new
       end
     end 
-    
+
     def create 
         # binding.pry 
         @review = current_user.reviews.build(review_params)
