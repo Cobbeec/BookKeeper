@@ -3,7 +3,12 @@ class ReviewsController < ApplicationController
     #redirect_if_not_logged_in 
 
     def index 
+        if params[:user_id] && @user = User.find_by_id(params[:user_id])
+        @reviews = @user.reviews.all
+    else
+        @error = "That user doesn't exist" if params[:user_id]
         @reviews = Review.all 
+      end 
     end 
 
     def show 
