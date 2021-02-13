@@ -30,6 +30,17 @@ class ReviewsController < ApplicationController
         redirect_to posts_path if !@review || @review.user != current_user
       end
 
+      def update
+        @review = Review.find_by(id: params[:id])
+        redirect_to reviews_path if !@review || @review.user != current_user
+       if @review.update(review_params)
+         redirect_to review_path(@review)
+       else
+         render :edit
+       end
+     end
+
+
     private
     def review_params 
         params.require(:review).permit(:book_id, :title,:content) #because you have a book object 
