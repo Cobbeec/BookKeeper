@@ -47,13 +47,19 @@ class ReviewsController < ApplicationController
 
      def destroy
       @review = Review.find_by_id(params[:id])
+      if logged_in? && @review.user == current_user 
       @review.destroy 
       redirect_to reviews_path
+    else 
+      flash[:message] = "You do not have access to this file."  
+        redirect_to review_path(@review)
     end
+  end 
 
 
     private
     def review_params 
         params.require(:review).permit(:book_id, :title,:content) #because you have a book object 
     end 
-end
+
+  end 
