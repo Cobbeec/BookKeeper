@@ -3,3 +3,7 @@
 Review Title: <h3> <%=@review.title%> </h3>
 <div> <%= @review.content%></div>
 
+<% if @review.user == current_user %>
+<h4><%= link_to "Edit Review", edit_review_path(@review)%></h4>
+<% end %>
+

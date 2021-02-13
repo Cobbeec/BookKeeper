@@ -28,7 +28,6 @@ class ReviewsController < ApplicationController
     def edit
         @review = Review.find_by_id(params[:id])
         redirect_to posts_path if !@review || @review.user != current_user
-        @review.build_category if !@review.category
       end
 
     private

@@ -2,15 +2,10 @@
 
 <%= form_for(@review) do |f|%>
 
-  <%= f.label "Choose an author:" %>
-  <%= f.collection_select :author_id, Author.all, :id, :name, include_blank: true %>
+    <%= f.collection_select :book_id, Book.all, :id, :title, prompt: true %> <br><br>
+    <%= f.fields_for :book do |b| %> 
+    <% end %> 
 
-
-   <p>Or create a new author:
-  <%= f.fields_for :author do |a|%>
-    <%= a.text_field :name%>
-  <% end %>
-  </p>
 
   <br>
   <%= f.label :title %>
