@@ -9,9 +9,10 @@ class SessionsController < ApplicationController
     user = User.find_by_id(params[:id])
     if user && user.authenticate(params[:user][:password])
         session[:user_id] = user.id
-        redirect_to user_path(user)
+        redirect_to user _path(user)
     else  
-        render 'new' 
+        flash[:message] = "Incorrect Login Info. Please try again."
+        redirect_to "/" 
     end 
     end 
 
@@ -28,17 +29,12 @@ class SessionsController < ApplicationController
             flash[:message] = user.errors.full_messages.join(",")
             redirect_to reviews_path 
     end 
-end 
+    end 
  
-# def destroy 
-#     session.clear 
-#     redirect_to root_path 
-#     end 
-
     def destroy
         if current_user
          session.delete :user_id
-        redirect_to root_url
+        redirect_to root_path 
         end
      end
 
