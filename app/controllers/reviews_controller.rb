@@ -17,9 +17,13 @@ class ReviewsController < ApplicationController
     end 
 
     def new
-        @review = Review.new 
+      if params[:user_id] && @user = User.find_by_id(params[:user_id])
+        @review = @user.reviews.build
+      else
+        @review = Review.new
       end
-
+    end 
+    
     def create 
         # binding.pry 
         @review = current_user.reviews.build(review_params)
