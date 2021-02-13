@@ -6,25 +6,25 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-g = Genre.create(
-    {name: "fantasy"} 
-)
+# g = Genre.create(
+#     {name: "fantasy"} 
+# )
 
 
-a = Author.create({name: "Tolkien"})
+# a = Author.create({name: "Tolkien"})
 
-Book.create([
-{title: "The Hobbit", author: a, genre: g}
-])
+# Book.create([
+# {title: "The Hobbit", author: a, genre: g}
+# ])
 
-Genre.create ([
-{name: "horror"} ,
-{name: "fiction"} ,
-{name: "sci-fi"} ,
-{name: "biography"} ,
-{name: "poetry"} ,
-{name: "self help"} ,
-{name: "travel"} ,
-{name: "nonfiction"} ,
-{nmae: "reference"} ]) 
+# Genre.create ([
+# {name: "horror"} ,
+# {name: "fiction"} ,
+# {name: "sci-fi"} ,
+# {name: "biography"} ,
+# {name: "poetry"} ,
+# {name: "self help"} ,
+# {name: "travel"} ,
+# {name: "nonfiction"} ,
+# {nmae: "reference"} ]) 
 

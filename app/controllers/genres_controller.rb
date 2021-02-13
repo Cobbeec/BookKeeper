@@ -19,10 +19,10 @@ class GenresController < ApplicationController
   end
 
   def show
+    @genre = Genre.find_by_id(params[:id])
   end
 
-  def edit
-  end
+  
 
   def update
     @genre.update(genre_params)

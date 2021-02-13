@@ -11,9 +11,9 @@ class ReviewsController < ApplicationController
         @review = Review.find_by_id(params[:id])
     end 
 
-    def new 
+    def new
         @review = Review.new 
-    end 
+      end
 
     def create 
         # binding.pry 
