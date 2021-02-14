@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-#login functionality 
+
 
   def destroy
     session.clear
@@ -34,17 +34,6 @@ class SessionsController < ApplicationController
     end 
     end 
  
-    # def destroy
-    #     if current_user
-    #         session.delete :user_id
-    #         flash[:message] = "Goodbye!!"   
-    #         redirect_to "/"
-    #     else 
-    #         binding.pry 
-    #         flash[:message] = "Goodbye!"    
-    #         redirect_to "/"
-    #         end
-    #     end
 
     private 
     def auth 

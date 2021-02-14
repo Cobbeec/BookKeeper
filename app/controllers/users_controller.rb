@@ -26,5 +26,4 @@ class UsersController < ApplicationController
         params.require(:user).permit(:name, :username, :email, :password)
     end 
 
-    #signup goes here 
 end
