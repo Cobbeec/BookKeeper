@@ -16,9 +16,7 @@
 
 
   <%= f.submit %> <br> <br> 
+  <% end %>
 
+  <%= button_to 'Delete', review_path(@review), method: 'delete', data: { confirm: 'Are you sure?' } %>
 
-<%= button_to 'Delete', review_path(@review), method: 'delete', data: { confirm: 'Are you sure?' } %>
-
-
-<% end %>

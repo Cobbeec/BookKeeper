@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:user][:password])
         session[:user_id] = user.id
         redirect_to user_path(user)
+        flash[:message] = "Hello and Welcome!" 
     else  
         flash[:message] = "Invalid Credentials! Please try again"
         redirect_to "/" 

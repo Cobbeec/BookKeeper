@@ -13,14 +13,21 @@
   <body>
 
   <div>
-  <br><br>
-  <%= button_to "Log in with Google", '/auth/google_oauth2' %>
-  <br> <br>
+  <% if logged_in? %> <br> <br> 
   <%= link_to "Add a New Book!", new_book_path(@book)%> | 
+  <%= link_to "Add a New Review!", new_review_path(@review)%> | 
+  <%= link_to "Add a New Author!", new_author_path(@author)%> | 
   <%= link_to "All Books", books_path %> |
+  <%= link_to "Logout", logout_path, method: "delete" %> <br> <br> 
+
+  <% else %> 
+  <br> <br> 
   <%=link_to "Sign Up", signup_path %> |
   <%= link_to "Log In", login_path %> |
   <%= link_to "Logout", logout_path, method: "delete" %> <br> <br> 
+  <%= button_to "Log in with Google", '/auth/google_oauth2' %>
+  <br> <br>
+ <% end %> 
   </div> 
   <% if flash[:message] %>
     <%= flash[:message] %> 
