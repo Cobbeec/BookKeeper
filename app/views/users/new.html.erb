@@ -1,15 +1,4 @@
 <h1> Signup for BookKeeper Here!</h1> 
-<% if @user.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this review from being saved:</h2>
-
-    <ul>
-      <% @user.errors.each do |error| %>
-        <li><%= error.full_message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %> 
 
 <%= render partial: "layouts/errors", locals: {object: @user} %>
 
