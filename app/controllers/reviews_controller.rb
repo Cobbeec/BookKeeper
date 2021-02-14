@@ -1,12 +1,16 @@
 class ReviewsController < ApplicationController
   before_action :find_review, :redirect_if_not_owner, only: [:edit, :update, :destroy]
 
+  def self.alphabetize 
+    self.order(title: :desc)
+  end 
+
     def index 
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
-        @reviews = @user.reviews.all
+        @reviews = @user.reviews.alpha
     else
         @error = "You don't have access to that information." if params[:user_id]
-        @reviews = Review.all 
+        @reviews = Review.alpha 
       end 
     end 
 
@@ -54,7 +58,7 @@ class ReviewsController < ApplicationController
     end
  
 
-    private
+   private
     def review_params 
         params.require(:review).permit(:book_id, :title,:content) #because you have a book object 
     end 

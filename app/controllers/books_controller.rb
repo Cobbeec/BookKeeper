@@ -11,7 +11,7 @@ class BooksController < ApplicationController
         @error = "That book doesn't exist yet" if params[:author_id]
         @books = Book.alpha 
     end 
-end 
+    end 
 
     def new 
         if params[:author_id] && Author.find_by_id(params[:author_id])
@@ -28,6 +28,7 @@ end
         # binding.pry 
         if @book.save
           redirect_to book_path(@book)
+        #   binding.pry 
         else
           render :new
         end
@@ -48,6 +49,6 @@ end
  
     private 
     def book_params
-        params.require(:book).permit(:title, :author_id, :genre_id, author_attributes: [:name])
+        params.require(:book).permit(:title, :author_id, :genre_id,  author_attributes: [:name])
       end
 end

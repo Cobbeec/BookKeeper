@@ -23,7 +23,6 @@ class GenresController < ApplicationController
   end
 
   
-
   def update
     @genre.update(genre_params)
     if @genre.save
