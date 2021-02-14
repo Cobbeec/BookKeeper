@@ -1,6 +1,5 @@
 class ReviewsController < ApplicationController
-    #before_action:
-    #redirect_if_not_logged_in 
+  before_action :find_review, :redirect_if_not_owner, only: [:edit, :update, :destroy]
 
     def index 
         if params[:user_id] && @user = User.find_by_id(params[:user_id])
@@ -33,39 +32,41 @@ class ReviewsController < ApplicationController
         else 
             render :new 
         end 
-    end 
+      end 
 
     def edit
-        @review = Review.find_by_id(params[:id])
-        redirect_to reviews_path if !@review || @review.user != current_user
       end
 
+
       def update
-        @review = Review.find_by(id: params[:id])
-        redirect_to reviews_path if !@review || @review.user != current_user
        if @review.update(review_params)
         # binding.pry 
         redirect_to action: "show" 
        else
          render :new 
        end
-     end
+      end 
+  
 
      def destroy
-      @review = Review.find_by_id(params[:id])
-      if logged_in? && @review.user == current_user 
       @review.destroy 
       redirect_to reviews_path
-    else 
-      flash[:message] = "You do not have access to this file."  
-        redirect_to review_path(@review)
     end
-  end 
-
+ 
 
     private
     def review_params 
         params.require(:review).permit(:book_id, :title,:content) #because you have a book object 
     end 
 
-  end 
+    def find_review
+      @review = Review.find(params[:id])
+  end
+
+    def redirect_if_not_owner
+      if @review.user != current_user
+          redirect_to user_path(current_user), alert: "You don't have access to this data!" 
+      end
+  
+ end 
+end 
