@@ -5,6 +5,7 @@ class Book < ApplicationRecord
   scope :alpha, -> { order(:title) }
 
   validates :title, presence: true 
+  validates :title, uniqueness: true 
 
   def author_attributes=(attr)
     if !attr[:name].blank?

@@ -1,18 +1,15 @@
 class ReviewsController < ApplicationController
   before_action :find_review, :redirect_if_not_owner, only: [:edit, :update, :destroy]
 
-  def self.alphabetize 
-    self.order(title: :desc)
-  end 
 
-    def index 
-        if params[:user_id] && @user = User.find_by_id(params[:user_id])
-        @reviews = @user.reviews.alpha
-    else
-        @error = "You don't have access to that information." if params[:user_id]
-        @reviews = Review.alpha 
-      end 
-    end 
+  def index 
+    if params[:user_id] && @user = User.find_by_id(params[:user_id])
+    @reviews = @user.reviews
+else
+    @error = "You don't have access to that information." if params[:user_id]
+    @reviews = Review.all 
+  end 
+end 
 
     def show 
         # binding.pry 
@@ -73,4 +70,4 @@ class ReviewsController < ApplicationController
       end
   
  end 
-end 
+end
