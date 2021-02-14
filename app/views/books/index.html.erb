@@ -1,6 +1,4 @@
 <h1> Books Index </h1> 
-<%= display_header(@author) %> 
-
 <% @books.each do |book| %> 
     <div> 
     <%=link_to(book.title, book_path(book)) %>

@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
     def show 
         # binding.pry 
         @review = Review.find_by_id(params[:id])
+        @book = @review.book 
     end 
 
     def new
