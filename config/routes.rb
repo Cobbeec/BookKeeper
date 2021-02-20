@@ -8,9 +8,15 @@ Rails.application.routes.draw do
   delete '/logout' => 'sessions#destroy'
 
   
-  resources :authors do 
-    resources :books, only: [:new, :create, :index]
-  end 
+  # resources :authors do 
+  #   resources :books 
+  #   #  , only: [:new, :create, :index]
+  # end 
+
+  resources :authors do
+    resources :books 
+  end
+  
 
   resources :genres 
   resources :users 

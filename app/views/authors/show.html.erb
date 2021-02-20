@@ -3,5 +3,5 @@
 Name: <%= @author.name %><br/>
 <h4> Associated Books </h4> 
 <% @author.books.each do |b| %>
-    <li><%=b.user.username%>
+    <li><%=b.users.username%>
     <% end %> 

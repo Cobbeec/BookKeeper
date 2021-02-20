@@ -12,7 +12,6 @@ else
 end 
 
     def show 
-        # binding.pry 
         @review = Review.find_by_id(params[:id])
         @book = @review.book 
     end 
@@ -26,7 +25,6 @@ end
     end 
 
     def create 
-        # binding.pry 
         @review = current_user.reviews.build(review_params)
         if @review.save 
             redirect_to reviews_path 
