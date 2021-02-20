@@ -1,7 +1,7 @@
 <h1> Books Index </h1> 
     <ul>
     <% @books.each do |b|%>
-      <li><%= b.title%>" <strong><%= link_to b.author.name, author_path(b.author_id) %></strong></li>
+      <li><%= b.title%> <strong><%= link_to b.author.name, author_path(b.author_id) %></strong></li>
     <% end %>
     </ul>
 

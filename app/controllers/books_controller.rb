@@ -14,7 +14,7 @@ class BooksController < ApplicationController
     end 
 
     def new 
-        if params[:author_id] && Author.find_by_id(params[:author_id]) #if nested route
+        if params[:author_id] && @author = Author.find_by_id(params[:author_id]) #if nested route
             @book = @author.books.build 
         else 
              @error = "That book does not yet exist" 
