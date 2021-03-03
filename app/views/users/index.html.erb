@@ -1,0 +1,13 @@
+<h4> All Users <h4> 
+
+<ul> 
+<% @users.each do |u| %> 
+<li><%= link_to u.username, user_path(u) %> <%= u.reviews.count %> </li> 
+<% end %> 
+</ul> 
+
+
+
+
+
+  

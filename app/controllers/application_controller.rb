@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
-    helper_method :current_user, :logged_in? 
+    helper_method :current_user, :logged_in? ##makes these accessible in the views
    
     def current_user
+        binding.pry 
         @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
        end
     

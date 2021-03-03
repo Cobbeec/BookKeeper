@@ -46,6 +46,5 @@ Loaders.css
 BCrypt  
 ActiveRecord 
 Pry 
-tux 
 Rails 
 Sqlite3 

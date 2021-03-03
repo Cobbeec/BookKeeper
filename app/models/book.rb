@@ -10,9 +10,9 @@ class Book < ApplicationRecord
   def author_attributes=(attr)
     if !attr[:name].blank?
         self.author= Author.find_or_create_by(name: attr[:name])
-    end
-  
+    end  
 end
+
 
 
 end

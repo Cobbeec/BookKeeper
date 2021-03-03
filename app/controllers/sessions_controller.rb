@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
    end
  
     def create 
+        binding.pry 
     user = User.find_by(username: params[:user][:username])
     if user && user.authenticate(params[:user][:password])
         session[:user_id] = user.id
@@ -19,7 +20,8 @@ class SessionsController < ApplicationController
     end 
     end 
 
-    def omniauth 
+    def omniauth #create or login a user via Google 
+        binding.pry 
         user = User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
             u.username = auth['info']['first_name']
             u.email = auth['info']['email']
@@ -35,7 +37,7 @@ class SessionsController < ApplicationController
     end 
  
 
-    private 
+    private #private to request auth hash
     def auth 
         request.env['omniauth.auth']
     end 
