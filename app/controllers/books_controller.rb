@@ -13,7 +13,8 @@ class BooksController < ApplicationController
         @books = Book.alpha 
     end 
         if params[:q]
-          @posts = @posts.search(params[:q])
+          @books = @books.search(params[:q].downcase)
+    end 
     end 
 
     def new 
