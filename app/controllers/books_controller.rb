@@ -6,7 +6,7 @@ class BooksController < ApplicationController
     end 
 
     def index 
-        if params[:author_id] && @author = Author.find_by_id(params[:author_id]) #for nesting
+        if params[:author_id] && @author = Author.find_by_id(params[:author_id]) 
         @books = @author.books.alpha
         else 
         @error = "That book doesn't exist yet" if params[:author_id]
@@ -15,7 +15,7 @@ class BooksController < ApplicationController
     end 
 
     def new 
-        if params[:author_id] && @author = Author.find_by_id(params[:author_id]) #if nested route
+        if params[:author_id] && @author = Author.find_by_id(params[:author_id]) 
             @book = @author.books.build 
         else 
              @error = "That book does not yet exist" 
@@ -27,11 +27,11 @@ class BooksController < ApplicationController
     def create
         @book= Book.new(book_params)
         # binding.pry 
-        if @book.save #here is where the validations happen 
+        if @book.save 
           redirect_to book_path(@book)
         #   binding.pry 
         else
-          render :new #not a new http request 
+          render :new 
         end
       end
  
