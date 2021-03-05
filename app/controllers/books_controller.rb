@@ -12,6 +12,8 @@ class BooksController < ApplicationController
         @error = "That book doesn't exist yet" if params[:author_id]
         @books = Book.alpha 
     end 
+        if params[:q]
+          @posts = @posts.search(params[:q])
     end 
 
     def new 

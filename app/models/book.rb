@@ -15,9 +15,8 @@ class Book < ApplicationRecord
     end  
 end
 
-def custom_method 
-  # binding.pry 
-end 
+  def self.search(params)
+  end 
 
 
 
