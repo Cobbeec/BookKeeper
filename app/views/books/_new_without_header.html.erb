@@ -1,0 +1,12 @@
+new without header 
+
+<%= form_for(@book) do |f| %>
+    <%= display_authors_fields(f) %> 
+ <%= f.fields_for :author do |b| %> 
+ <% end %> 
+     <%= f.label :title, "Title!!:" %>
+     <%= f.text_field :title%> 
+     <%= f.label :genre, "Genre!!:" %>
+     <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: true %> <br><br>
+     <%=f.submit %> 
+     <% end %>

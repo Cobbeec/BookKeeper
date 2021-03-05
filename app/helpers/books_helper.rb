@@ -18,8 +18,10 @@ end
     def display_nested_header 
         if params[:author_id]
             "Create a new #{@author.name} book"
+            render partial: 'new_without_header'
         else 
-            "Create New Book"
+            "Create New Book!"
+            render partial: 'new_with_header'
         end 
     end 
 end
