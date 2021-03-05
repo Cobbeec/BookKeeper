@@ -3,13 +3,15 @@
     <%= f.label :author, "Author:" %> 
  <%= f.collection_select :author_id, Author.all, :id, :name, prompt: true %> <br><br>
  <%= f.fields_for :author do |b| %> 
-  <p> <h4> Or Create a New Author Below: </h4></p>
-     <%= b.label :name, "Name:"%>
+  <p> <h6> Or Create a New Author Below: </h6></p>
+     <ul><h5> <%= b.label :name, "Name:"%>
      <%= b.text_field :name%> 
      <% end %> <br> <hr> <br> 
+    
      <%= f.label :title, "Title:" %>
      <%= f.text_field :title%> 
      <%= f.label :genre, "Genre:" %>
-     <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: true %> <br><br>
+     <%= f.collection_select :genre_id, Genre.all, :id, :name, prompt: true %> <br><br> </ul></h5>
      <%=f.submit %> 
      <% end %>
+
