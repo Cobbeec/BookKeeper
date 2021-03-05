@@ -1,5 +1,6 @@
 class ReviewsController < ApplicationController
   before_action :find_review, :redirect_if_not_owner, only: [:edit, :update, :destroy]
+ 
 
 
   def index 

@@ -1,4 +1,5 @@
 class BooksController < ApplicationController
+    before_action :set_book, only: [:show, :edit, :update ]
 
     def self.alphabetize 
         self.order(title: :desc)
@@ -36,11 +37,9 @@ class BooksController < ApplicationController
  
 
     def show 
-        @book = Book.find_by_id(params[:id])
     end 
 
     def edit 
-        @book = Book.find_by_id(params[:id])
     end 
 
     def update 
@@ -51,4 +50,8 @@ class BooksController < ApplicationController
     def book_params
         params.require(:book).permit(:title, :author_id, :genre_id,  author_attributes: [:name])
       end
+
+      def set_book  
+        @book = Book.find_by_id(params[:id])
+      end 
 end
