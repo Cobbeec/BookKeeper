@@ -1,3 +1,5 @@
+<%= render partial: "layouts/errors", locals: {object: @book} %>
+
 Add a New Book for <%=@author.name%> 
 <%= form_for(@book) do |f| %>
     <%= display_authors_fields(f) %> 

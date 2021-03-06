@@ -3,7 +3,8 @@
    <%= f.label :author, "Author:" %> 
 <%= f.collection_select :author_id, Author.all, :id, :name, prompt: true %> <br><br>
 <%= f.fields_for :author do |b| %> 
- <p> <h6> Or Create a New Author Below: </h6></p>
+ 
+   <p> <h6> Or Create a New Author Below: </h6></p>
     <ul><h5> <%= b.label :name, "Name:"%>
     <%= b.text_field :name%> 
     <% end %> <br> <hr> <br> 
