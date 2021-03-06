@@ -7,7 +7,7 @@ class Book < ApplicationRecord
 
   validates :title, presence: true 
   validates :title, uniqueness: true 
-  validate :custom_method
+
 
   def self.search(params)
     where("LOWER(title) LIKE :term", term: "%#{params}%")

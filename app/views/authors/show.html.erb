@@ -6,4 +6,5 @@ Name: <%= @author.name %><br/>
     <li><%=b.title%>
     <% end %> <br> <br> 
 
+    <%= link_to "Add a Book For This Author", new_author_book_path(@author, @book)%>
    

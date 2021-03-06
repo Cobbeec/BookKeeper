@@ -1,5 +1,4 @@
-new without header 
-
+Add a New Book for <%=@author.name%> 
 <%= form_for(@book) do |f| %>
     <%= display_authors_fields(f) %> 
  <%= f.fields_for :author do |b| %> 
