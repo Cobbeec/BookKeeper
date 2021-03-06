@@ -10,7 +10,7 @@ class Book < ApplicationRecord
   validate :custom_method
 
   def self.search(params)
-    where("LOWER(title) = ?", "%{params}%")
+    where("LOWER(title) LIKE :term", term: "%#{params}%")
   end 
 
   def author_attributes=(attr)

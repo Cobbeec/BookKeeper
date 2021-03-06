@@ -12,7 +12,7 @@ class BooksController < ApplicationController
         @error = "That book doesn't exist yet" if params[:author_id]
         @books = Book.alpha 
     end 
-        if params[:q]
+        if params[:q] && !params[:q].empty? 
           @books = @books.search(params[:q].downcase)
     end 
     end 
